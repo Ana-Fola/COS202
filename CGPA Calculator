@@ -1,0 +1,37 @@
+print("="*40)
+print("   PERSONAL POCKET CGPA CALCULATOR")
+print("="*40)
+
+total_units = 0
+total_grade_points = 0
+num_courses = int(input("How many courses do you want to calculate? "))
+for i in range(num_courses):
+    print()
+    print("Course", i + 1)
+    unit = int(input("Enter course unit (e.g., 2, 3): "))
+    score = float(input("Enter your score (0-100): "))
+    
+    if score >= 70:
+        point = 5  #A
+    elif score >= 60:
+        point = 4  #B
+    elif score >= 50:
+        point = 3  # C
+    elif score >= 45:
+        point = 2  # D
+    elif score >= 40:
+        point = 1  # E
+    else:
+        point = 0  # F
+        
+    grade_point = unit * point
+    total_units = total_units + unit
+    total_grade_points = total_grade_points + grade_point
+if total_units > 0:
+    cgpa = total_grade_points / total_units
+    print()
+    print("="*40)
+    print("Your calculated CGPA is:", round(cgpa, 2))
+    print("="*40)
+else:
+    print("No courses entered to calculate CGPA")    
